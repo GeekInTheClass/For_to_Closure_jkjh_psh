@@ -3,25 +3,28 @@
 import UIKit
 
 var array = ["1", "3", "5", "7", "10", "12","15", "18"]
+
 var newarray:[Int] = []
+var evens=[Int]()
+var odds=[Int]()
+
 //all element in newnewarray is odd
+
 var newnewarray:[Int] = []
-for elem in array
-{
-    newarray.append(Int(elem)!)
+
+
+newarray = array.map({(v:String) -> (Int) in
+        return Int(v)!
+})
+
+evens=newarray.filter{number in number % 2 == 0}
+odds=newarray.filter{number in number % 2 != 0}
+
+for i in odds {
+    newnewarray.append(i)
 }
-
-
-
-for nelem in newarray
-{
-    if nelem%2 == 0
-    {
-        newnewarray.append(nelem+1)
-    }
-    else
-    {
-        newnewarray.append(nelem)
-    }
+for i in evens {
+    newnewarray.append(i+1)
 }
-
+newnewarray.sort()
+print(newnewarray)
